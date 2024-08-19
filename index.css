@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+  
+  body {
+    background-color: #fcc;
+    min-height: 100vh;
+    font-family: Arial;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .effect,
+  .effect {
+    position: absolute;
+    width: 80%;
+    height: 120px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    z-index: -1;
+  
+    &:first-child {
+      transform: rotate(8deg);
+    }
+  
+    &:not(:first-child) {
+      transform: rotate(-8deg);
+    }
+  }
+  
+  .container {
+    width: 85%;
+    height: 120px;
+    background-color: #b07d7d;
+    border-radius: 10px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    & .progress-bar {
+      position: relative;
+      width: 88%;
+  
+      display: flex;
+      align-items: center;
+  
+      & .progress {
+        width: 100%;
+        list-style: none;
+        counter-reset: step;
+  
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        & li {
+          position: relative;
+          width: 20px;
+          height: 20px;
+          border-radius: 4px;
+          background-color: #c99;
+          cursor: pointer;
+          z-index: 2;
+  
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          &.active {
+            background-color: #fcc;
+            box-shadow: 0 0 12px #fcd;
+          }
+  
+          &:before {
+            content: counter(step);
+            counter-increment: step;
+  
+            font-size: 0.875rem;
+            color: #633;
+          }
+  
+          & span {
+            position: absolute;
+            top: 130%;
+            color: #fff;
+            font-size: 0.875rem;
+            white-space: nowrap;
+          }
+        }
+      }
+  
+      & .bar {
+        position: absolute;
+        width: 99%;
+        height: 3px;
+        overflow-x: hidden;
+        background-color: #fdd;
+  
+        & .fill {
+          position: absolute;
+          height: 3px;
+          background-color: #fbb;
+        }
+      }
+    }
+  }
+  
+  .credits {
+    position: absolute;
+    bottom: 5px;
+    font-size: 0.8em;
+  }
